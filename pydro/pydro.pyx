@@ -144,7 +144,7 @@ cdef class GR4J:
     cpdef np.ndarray[np.float32_t, ndim=2] run(self, pe):
         cdef np.ndarray[np.float32_t, ndim=2] _pe, q
 
-        _pe = np.vstack(pe, dtype=np.float32)
+        _pe = np.vstack(pe).astype(np.float32)
         q = np.empty((1, _pe.shape[1]), dtype=np.float32)
         run_gr4j(
             np.asarray(self.x, dtype=np.float32),
